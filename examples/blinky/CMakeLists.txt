@@ -56,7 +56,7 @@ if(BLINKY_F4_EXAMPLE)
         HAL::STM32::F4::RCC
         HAL::STM32::F4::GPIO
         HAL::STM32::F4::CORTEX
-        CMSIS::STM32::F407VG
+        CMSIS::STM32::F401RE
         STM32::NoSys
     )
     stm32_print_size_of_target(stm32-blinky-f4)

@@ -1,0 +1,7 @@
+{
+    "cmake.sourceDirectory": "${workspaceFolder}/examples/blinky",
+    "cmake.configureSettings": {
+        "STM32_CUBE_F4_PATH": "C:\\Users\\Sebastien\\STM32Cube\\Repository\\STM32Cube_FW_F4_V1.25.2",
+    },
+    "cortex-debug.openocdPath": "C:/Outils/msys64/mingw64/bin/openocd.exe",
+}
