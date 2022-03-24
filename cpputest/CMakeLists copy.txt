@@ -1,0 +1,76 @@
+set(CMAKE_TRY_COMPILE_TARGET_TYPE "STATIC_LIBRARY")
+set(CMAKE_SYSTEM_NAME Generic)
+#set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} --specs=nosys.specs")
+# set(GCC_COMPILE_FLAGS " -lang-c++")
+# add_definitions(${GCC_COMPILE_FLAGS})
+
+cmake_minimum_required(VERSION 3.16)
+
+project (Tutorial)
+
+include(${CMAKE_CURRENT_SOURCE_DIR}/../cmake/cpputest-init.cmake)
+# CppUTest path (Add to ENVar)
+# set (CPPUTEST_HOME "C:/Outils/cpputest")
+set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/../cmake/cpputest-init.cmake)
+# Project path
+# set (PROJECT_DIR "C:/Projets/LoRa/stm32-cmake")
+set (PROJECT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/..)
+# set (SRC_DIR ${PROJECT_DIR}/examples/blinky)
+set (TEST_DIR ${PROJECT_DIR}/cpputest)
+
+
+# include project source
+# include_directories(
+#     ${PROJECT_DIR}/cpputest/example-include
+#     ${PROJECT_DIR}/cpputest/example-platform
+#     ${PROJECT_DIR}/cpputest/example-src
+#     ${PROJECT_DIR}/cpputest/tests
+#     )
+# include_directories($ENV{CPPUTEST_HOME}/include $ENV{CPPUTEST_HOME}/include/CppUTest)
+
+
+# specify where the source code and includes are located
+set (INCLUDE_DIRS 
+    ${TEST_DIR}
+    ${PROJECT_DIR}/cpputest/example-include)
+set (SRC_DIRS
+    ${TEST_DIR}
+    ${PROJECT_DIR}/cpputest/example-platform
+    ${PROJECT_DIR}/cpputest/example-src
+    ${PROJECT_DIR}/cpputest/tests
+    )
+# specify where the test code is located
+# set (TEST_SRC_DIRS ${TEST_DIR})
+# what to call the test binary
+#TEST_TARGET=example
+
+# For the memory leak detection
+set (CXXFLAGS "${CXXFLAGS} -include $ENV{CPPUTEST_HOME}/include/CppUTest/MemoryLeakDetectorNewMacros.h")
+set (CFLAGS "${CFLAGS} -include $ENV{CPPUTEST_HOME}/include/CppUTest/MemoryLeakDetectorMallocMacros.h")
+
+
+# include CppUTest headers
+include_directories($ENV{CPPUTEST_HOME}/include)
+
+# add cpputest library
+# add_library(imp_cpputest STATIC IMPORTED)
+# set_property(TARGET imp_cpputest PROPERTY
+#              IMPORTED_LOCATION $ENV{CPPUTEST_HOME}/src/CppUTest/libCppUTest.a)
+
+# build test library for example-src
+# add_library(ExempleTest ${TEST_DIR}/example-src/Example.c)
+
+add_executable(RunAllTests ${TEST_DIR}/tests/AllTests.cpp ${SRC_DIRS})
+target_link_libraries(RunAllTests PUBLIC CppUTest)
+# target_link_libraries(RunAllTests PUBLIC ExempleTest)
+# target_link_libraries(RunAllTests imp_cpputest ExempleTest RuntimeErrorStub)
+
+
+# Compiler options
+# set (CPPFLAGS "${CPPFLAGS} -I $ENV{CPPUTEST_HOME}/include")
+
+
+# Run MakefileWorker.mk
+# include($ENV{CPPUTEST_HOME}/build/MakefileWorker.mk)
+
+

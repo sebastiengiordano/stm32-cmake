@@ -15,10 +15,10 @@
 #elif defined STM32F4
     #include <stm32f4xx_hal.h>
 
-    // STM32F4-Discovery green led - PD12
-    #define LED_PORT                GPIOD
-    #define LED_PIN                 GPIO_PIN_12
-    #define LED_PORT_CLK_ENABLE     __HAL_RCC_GPIOD_CLK_ENABLE
+    // STM32F401RE
+    #define LED_PORT                GPIOA
+    #define LED_PIN                 GPIO_PIN_5
+    #define LED_PORT_CLK_ENABLE     __HAL_RCC_GPIOA_CLK_ENABLE
 #endif
 
 void SysTick_Handler(void)

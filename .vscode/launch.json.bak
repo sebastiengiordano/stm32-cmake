@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "STM32 OpenOCD",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "cwd": "${workspaceRoot}",
+            "interface": "swd",
+            "executable": "${workspaceRoot}/build/stm32-blinky-f4.elf",
+            "gdbpath" : "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update/bin/arm-none-eabi-gdb.exe",
+            "runToMain": false,
+            "preLaunchTask": "build",
+            "preLaunchCommands": [],
+            "postLaunchCommands": [],
+            "device": "STM32F401RE",
+            "svdFile": "${workspaceRoot}/STM32F401.svd",
+            "compilerPath": "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update/bin",
+            "configFiles": [
+                "C:/Outils/msys64/mingw64/share/openocd/scripts/interface/stlink.cfg",
+                "C:/Outils/msys64/mingw64/share/openocd/scripts/target/stm32f4x.cfg",
+            ],
+            "showDevDebugOutput": "none",
+            "preRestartCommands": [
+                "load",
+                "monitor reset halt",
+                "b main"
+            ],
+            "internalConsoleOptions": "openOnSessionStart",
+        }
+    ]
+}

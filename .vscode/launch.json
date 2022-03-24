@@ -1,26 +1,22 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
-            "name": "Cortex Debug",
-            "type": "cortex-debug",
+            "name": "OpenOCD Debugging F4",
             "request": "launch",
+            "type": "cortex-debug",
+            "cwd": "C:/Outils/msys64",
+            "interface": "swd",
             "servertype": "openocd",
-            "cwd": "${workspaceRoot}",
-            "executable": "./build/stm32-blinky-f4.elf",
-            "name": "STM32 OpenOCD",
-            "runToMain": true,
-            "preLaunchTask": "build",
-            "preLaunchCommands": [],
-            "postLaunchCommands": [],
-            "device": "STM32F401RE",
-            "svdFile": "STM32F401.svd",
+            "executable": "${workspaceRoot}/build/stm32-stl-f4.elf",
+            "runToEntryPoint": "main",
+            "device": "NUCLEO_F401RE",
             "configFiles": [
-                "interface/stlink-v2.cfg",
-                "target/stm32f4x.cfg"
+                "C:/Outils/msys64/mingw64/share/openocd/scripts/interface/stlink.cfg",
+                "C:/Outils/msys64/mingw64/share/openocd/scripts/target/stm32f4x.cfg"
             ],
-            "showDevDebugOutput": true,
-            "internalConsoleOptions": "openOnSessionStart",
+            "showDevDebugOutput": "none"
         }
     ]
 }

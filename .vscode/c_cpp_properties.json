@@ -1,23 +1,38 @@
 {
     "env": {
         "stm32.family": "STM32F4",
-        "stm32.cpu": "STM32F401xE"
+        "stm32.cpu": "STM32F401xE",
+        "myCompilerPath": "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update"
     },
     "configurations": [
         {
             "name": "Win32",
-            "includePath": [
-                "${workspaceFolder}/**"
-            ],
             "browse": {
                 "path": [
+                    "${workspaceFolder}/**",
                     "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update/bin",
-                    "${workspaceFolder}/**"
-                ],
+                    "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update/arm-none-eabi/include/",
+                    "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update/arm-none-eabi/include/c++/",
+                    "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update/arm-none-eabi/include/c++/9.3.1/",
+                    "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update/arm-none-eabi/include/c++/9.3.1/arm-none-eabi",
+                    "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update/arm-none-eabi/include/c++/9.3.1/backward"
+                ]
+            },
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/third/cpputest",
+                "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update/bin",
+                "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update/arm-none-eabi/include/",
+                "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update/arm-none-eabi/include/c++/",
+                "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update/arm-none-eabi/include/c++/9.3.1/",
+                "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update/arm-none-eabi/include/c++/9.3.1/arm-none-eabi",
+                "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update/arm-none-eabi/include/c++/9.3.1/backward"
+            ],
             "defines": [
                 "${stm32.cpu}"
             ],
-            "compilerPath": "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update/bin/arm-none-eabi-gcc.exe",
+            "compileCommands": "compile_commands.json",
+            "compilerPath": "C:/Outils/Compilateur/GCC/GNU Arm Embedded Toolchain/9 2020-q2-update",
             "cStandard": "c11",
             "cppStandard": "c++14",
             "intelliSenseMode": "gcc-x64"
